@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Question 4 - JavaScript</title>
 
+    <title>Question 4 - JavaScript Accessibility</title>
 </head>
-
 <body>
     <h1>HTML DOM Events</h1>
+    
     <p>Trigger a function on hover that will output "Hello World":</p>
-
-    <button onmouseover="myFunction()">Action!</button>
+    
+    <button id="actionBtn">Action!</button>
+    
     <p id="demo"></p>
-</body>
-<script>
-    function myFunction() {
-        document.getElementById("demo").innerHTML = "Hello World";
-    }
-</script>
 
+    <script>
+       
+        const button = document.getElementById('actionBtn');
+        const output = document.getElementById('demo');
+
+        function showMessage() {
+            output.innerHTML = "Hello World";
+        }
+
+        function clearMessage() {
+            output.innerHTML = "";
+        }
+
+        button.addEventListener('mouseover', showMessage);
+        button.addEventListener('focus', showMessage);     
+
+        button.addEventListener('mouseout', clearMessage);
+        button.addEventListener('blur', clearMessage);   
+    </script>
+</body>
 </html>
